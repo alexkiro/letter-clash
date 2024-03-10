@@ -24,6 +24,14 @@ module.exports = {
   rules: {
     // Don't force capitalized comments
     "capitalized-comments": ["off"],
+    // Only force func names if needed
+    "func-names": ["error", "as-needed"],
+    // Allow both function declarations and expressions
+    "func-style": "off",
+    // Exclude some commonly used iterators
+    "id-length": ["error", { exceptions: ["i", "j", "k"] }],
+    // Disable max-statements
+    "max-statements": "off",
     // Enforce separate lines for multiline comments
     "multiline-comment-style": ["error", "separate-lines"],
     "no-magic-numbers": "off",
