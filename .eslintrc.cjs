@@ -29,6 +29,23 @@ module.exports = {
     "no-magic-numbers": "off",
     // Force separate var declaration
     "one-var": ["error", "never"],
+    // Add support for the "@" alias
+    "perfectionist/sort-imports": [
+      "error",
+      {
+        groups: [
+          "type",
+          ["builtin", "external"],
+          "internal-type",
+          "internal",
+          ["parent-type", "sibling-type", "index-type"],
+          ["parent", "sibling", "index"],
+          "object",
+          "unknown",
+        ],
+        "internal-pattern": ["~/**", "@/**"],
+      },
+    ],
     // Disable sorting rules, as we are using the perfectionist plugin that auto-fixes them.
     "sort-imports": "off",
     "sort-keys": "off",
