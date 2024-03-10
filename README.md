@@ -61,8 +61,8 @@ npm run build
 npm run test:e2e
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint with [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/)
 
 ```sh
-npm run lint
+npm run style:fix
 ```
