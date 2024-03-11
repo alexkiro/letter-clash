@@ -2,21 +2,24 @@
 
 import fs from "fs";
 
-import { combinations, isSuperset } from "../lib/utils";
+import { isSuperset } from "../lib/utils";
 
 const WORD_LIST_FP: string = "./src/assets/words/word-list.json";
 const GAME_LIST_FP: string = "./src/assets/words/game-list.json";
 
+const MIN_LETTERS = 2;
+const MAX_LETTERS = 7;
+const MIN_WORD_COUNT: number = 20;
+const MAX_WORD_SIZE: number = 5;
+
 const RAW_WORDS_URL: string = "https://raw.githubusercontent.com/wordnik/wordlist/main/wordlist-20210729.txt";
-const ALPHABET: string[] = "abcdefghijklmnopqrstuvwxyz".split("");
-const MIN_WORDS: number = 20;
 
 function isWordValid(word: string): boolean {
-  if (word.length > 5 || word.length < 2) {
+  if (word.length < MIN_LETTERS || word.length > MAX_LETTERS) {
     return false;
   }
 
-  const unique = new Set();
+  const unique: Set<string> = new Set();
   for (const letter of word) {
     if (unique.has(letter)) {
       return false;
@@ -34,7 +37,7 @@ async function makeWordList(): Promise<string[]> {
 
   const validWords = [];
   for (let word of allWords) {
-    word = word.replace(/"/gu, "").trim();
+    word = word.replace(/"/gu, "").trim().toUpperCase();
     if (isWordValid(word)) {
       validWords.push(word);
     }
@@ -46,18 +49,21 @@ async function makeWordList(): Promise<string[]> {
 
 function makePossibleGames(validWords: string[]): string[] {
   console.log("Computing all possible games");
-  const allGames = Array.from(combinations(ALPHABET, 5));
   const validGames: string[] = [];
+  // Start each game from the letters of at least one "large" word.
+  const allGames = new Set(
+    validWords.filter((word) => word.length >= MAX_WORD_SIZE).map((word) => Array.from(word).sort().join("")),
+  );
 
   for (const gameCombination of allGames) {
     const game = new Set(gameCombination);
     const count = validWords.filter((word) => isSuperset(game, word)).length;
-    if (count >= MIN_WORDS) {
-      validGames.push(gameCombination.join(""));
+    if (count >= MIN_WORD_COUNT) {
+      validGames.push(gameCombination);
     }
   }
 
-  console.log(`Found ${validGames.length}/${allGames.length} valid games`);
+  console.log(`Found ${validGames.length}/${allGames.size} valid games`);
   return validGames;
 }
 

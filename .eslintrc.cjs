@@ -34,6 +34,9 @@ module.exports = {
     "max-statements": "off",
     // Enforce separate lines for multiline comments
     "multiline-comment-style": ["error", "separate-lines"],
+    // Allow use of "continue"
+    "no-continue": "off",
+    // Allow magic numbers
     "no-magic-numbers": "off",
     // Force separate var declaration
     "one-var": ["error", "never"],
@@ -58,5 +61,7 @@ module.exports = {
     "sort-imports": "off",
     "sort-keys": "off",
     "sort-vars": "off",
+    // Disable attribute order as it conflicts with perfections order
+    "vue/attributes-order": "off",
   },
 };
