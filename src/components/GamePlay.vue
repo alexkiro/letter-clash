@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type ComputedRef, type Ref, computed, onMounted, ref } from "vue";
+import { type Ref, computed, onMounted, ref } from "vue";
 
 import gameList from "@/assets/words/game-list.json";
 import wordList from "@/assets/words/word-list.json";
@@ -59,12 +59,12 @@ function submitWord() {
   userInput.value = "";
 }
 
-function cheat() {
-  for (const word of Array.from(solutions.value)) {
-    userInput.value = word;
-    submitWord();
-  }
-}
+// function cheat() {
+//   for (const word of Array.from(solutions.value)) {
+//     userInput.value = word;
+//     submitWord();
+//   }
+// }
 
 function resetGame() {
   userInput.value = "";
