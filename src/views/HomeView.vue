@@ -1,7 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is the home page</h1>
-  </div>
-
-  <router-link :to="{ name: 'game' }">Start Game</router-link>
+  <header>Letter Clash</header>
+  <main>
+    <router-link :to="{ name: 'game' }" class="btn">Start Game</router-link>
+  </main>
 </template>

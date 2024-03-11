@@ -38,6 +38,8 @@ module.exports = {
     "no-continue": "off",
     // Allow magic numbers
     "no-magic-numbers": "off",
+    // Allow negated conditions
+    "no-negated-condition": "off",
     // Force separate var declaration
     "one-var": ["error", "never"],
     // Add support for the "@" alias

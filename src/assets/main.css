@@ -1,9 +1,92 @@
+@font-face {
+  font-family: "Reem Kufi";
+  font-weight: 100 900;
+  font-display: block;
+  font-style: normal;
+  src: url("./ReemKufi-VariableFont_wght.ttf") format("truetype");
+}
+
+:root {
+  /* Palette */
+  --candle: #fdd018;
+  --slate: #2a2321;
+  --ocean: #048978;
+  --dark-ocean: #036e60;
+  --peach: #ffa763;
+  --dark-peach: #ff7f1c;
+}
+
+:root {
+  --background-color: var(--candle);
+  --font-color: var(--slate);
+  --border-color: #000;
+
+  --btn-primary-fg: var(--font-color);
+  --btn-primary-bg: var(--peach);
+}
+
 html {
   box-sizing: border-box;
+  color: var(--font-color);
+  font-family: "Reem Kufi", sans-serif;
+  letter-spacing: 0.1em;
+  word-spacing: 0.5em;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+#app {
+  background-color: var(--background-color);
+  /*noinspection CssOverwrittenProperties*/
+  min-height: 100vh;
+  /*noinspection CssOverwrittenProperties*/
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+header {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+}
+
+main {
+  max-width: 768px;
+  padding: 1rem;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.btn {
+  display: flex;
+
+  color: var(--btn-primary-fg);
+  background-color: var(--btn-primary-bg);
+  border: 4px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem 2.5rem;
+
+  box-shadow: 2px 4px #000;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
