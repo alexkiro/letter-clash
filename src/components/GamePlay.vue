@@ -127,7 +127,7 @@ onMounted(() => {
       </button>
       <button @click="backspace" class="available-letter">←</button>
     </div>
-    <button :disabled="userInput.length < 2" @submit="submitWord" class="submit-btn" type="submit">Submit</button>
+    <button :disabled="userInput.length < 2" @click="submitWord" class="submit-btn" type="submit">Submit</button>
   </div>
 </template>
 
