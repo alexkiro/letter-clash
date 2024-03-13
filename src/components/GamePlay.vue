@@ -11,7 +11,7 @@
     <div>
       <div class="user-input brutal-border">
         <input autocomplete="off" placeholder="..." readonly size="1" type="text" v-model="userInput" />
-        <button :disabled="userInput.length < 2" @submit="submitWord" class="submit-btn brutal-border" type="submit">
+        <button :disabled="userInput.length < 2" @click="submitWord" class="submit-btn brutal-border" type="submit">
           ▸
         </button>
       </div>
@@ -123,8 +123,7 @@ async function resetGame() {
   for (let i = 0; i < letters.length; i += 1) {
     animateWiggle(letters[i], colors[i % 4], { delay: 50 * i });
   }
-  animateShake(".game-score", "ocean", { delay: 500 });
-  animateShake(".user-input", "ocean", { delay: 1000 });
+  animateShake(".user-input", "ocean", { delay: 800 });
 }
 
 function handleKeyboardEvents(event: KeyboardEvent) {

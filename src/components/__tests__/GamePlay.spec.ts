@@ -6,6 +6,6 @@ import GamePlay from "@/components/GamePlay.vue";
 describe("", () => {
   it("renders properly", () => {
     const wrapper = mount(GamePlay);
-    expect(wrapper.text()).toContain("Submit");
+    expect(wrapper.text()).toContain("▸");
   });
 });
