@@ -2,6 +2,8 @@
 
 [![Run Tests](https://github.com/alexkiro/letter-clash/actions/workflows/tests.yml/badge.svg)](https://github.com/alexkiro/letter-clash/actions/workflows/tests.yml)
 [![Code Style](https://github.com/alexkiro/letter-clash/actions/workflows/style.yml/badge.svg)](https://github.com/alexkiro/letter-clash/actions/workflows/style.yml)
+[![CodeQL](https://github.com/alexkiro/letter-clash/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/alexkiro/letter-clash/actions/workflows/github-code-scanning/codeql)
+[![Build and deploy to GitHub Pages](https://github.com/alexkiro/letter-clash/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/alexkiro/letter-clash/actions/workflows/build-and-deploy.yml)
 
 ## Customize configuration
 
