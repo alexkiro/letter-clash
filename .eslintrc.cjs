@@ -31,6 +31,8 @@ module.exports = {
     "func-style": "off",
     // Exclude some commonly used iterators
     "id-length": ["error", { exceptions: ["i", "j", "k"] }],
+    // Disable max-params
+    "max-params": "off",
     // Disable max-statements
     "max-statements": "off",
     // Enforce separate lines for multiline comments
@@ -39,9 +41,9 @@ module.exports = {
     "no-continue": "off",
     // Allow magic numbers
     "no-magic-numbers": "off",
+    // Disable no-shadow because of upstream bug
     // Allow negated conditions
     "no-negated-condition": "off",
-    // Disable no-shadow because of upstream bug
     // https://github.com/typescript-eslint/tslint-to-eslint-config/issues/856
     "no-shadow": "off",
     // Force separate var declaration

@@ -10,15 +10,15 @@ const enum GameModes {
   // multiPlayer,
 }
 
-const selectedGameMode: Ref<GameModes> = ref(GameModes.singlePlayer);
+const selectedGameMode: Ref<GameModes> = ref(GameModes.notSet);
 </script>
 
 <template>
-  <template v-if="selectedGameMode === GameModes.notSet">
+  <main v-if="selectedGameMode === GameModes.notSet">
     <header>Letter Clash</header>
     <button @click="selectedGameMode = GameModes.singlePlayer" class="btn brutal-border">Start Game</button>
-  </template>
-  <game-play v-else-if="selectedGameMode === GameModes.singlePlayer" />
+  </main>
+  <game-play @close="selectedGameMode = GameModes.notSet" v-else-if="selectedGameMode === GameModes.singlePlayer" />
 </template>
 
 <style>
@@ -42,5 +42,13 @@ header {
   padding: 1rem 2.5rem;
 
   font-size: 1.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2rem;
 }
 </style>

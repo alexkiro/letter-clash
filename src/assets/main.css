@@ -25,14 +25,6 @@
   --btn-primary-bg: var(--peach);
 }
 
-html {
-  box-sizing: border-box;
-  color: var(--font-color);
-  font-family: "Reem Kufi", sans-serif;
-  letter-spacing: 0.1em;
-  word-spacing: 0.5em;
-}
-
 *,
 *::before,
 *::after {
@@ -43,50 +35,47 @@ a {
   text-decoration: none;
 }
 
-#app {
-  background-color: var(--background-color);
-  /*noinspection CssOverwrittenProperties*/
-  min-height: 100vh;
-  /*noinspection CssOverwrittenProperties*/
-  min-height: 100dvh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-}
-
-header {
-  font-size: 2.5rem;
+button {
+  cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
-  text-align: center;
-  padding: 2rem;
+  line-height: 1;
 }
 
-main {
-  max-width: 768px;
-  padding: 1rem;
-  flex: 1;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
+html {
+  box-sizing: border-box;
+  color: var(--font-color);
+  font-family: "Reem Kufi", sans-serif;
+  letter-spacing: 0.1em;
+  word-spacing: 0.5em;
 }
 
-.btn {
-  display: flex;
+body {
+  background-color: var(--background-color);
+}
 
-  color: var(--btn-primary-fg);
-  background-color: var(--btn-primary-bg);
+.brutal-border {
   border: 4px solid var(--border-color);
   border-radius: 8px;
-  padding: 1rem 2.5rem;
-
   box-shadow: 2px 4px #000;
+}
 
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.5rem;
+.bg-white {
+  background-color: white;
+}
+
+.bg-peach {
+  background-color: var(--dark-peach);
+}
+
+.bg-dark-peach {
+  background-color: var(--peach);
+}
+
+.bg-ocean {
+  background-color: var(--dark-ocean);
+}
+
+.bg-dark-ocean {
+  background-color: var(--ocean);
 }
