@@ -28,7 +28,7 @@ jobs:
           node-version: 20
           cache: "npm"
       - run: npm ci
-      - run: npm run build -- -- --base=/letter-clash/
+      - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: './dist/'
