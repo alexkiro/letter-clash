@@ -16,6 +16,7 @@ export default defineConfig({
       manifest: {
         background_color: "#fdd018",
         description: "Anagram Game Solver",
+        display: "fullscreen",
         icons: [
           {
             purpose: "any",
@@ -43,6 +44,7 @@ export default defineConfig({
           },
         ],
         name: "Letter Clash",
+        short_name: "Letter Clash",
         theme_color: "#048978",
       },
       registerType: "autoUpdate",

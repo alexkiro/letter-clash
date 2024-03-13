@@ -22,6 +22,7 @@ module.exports = {
   plugins: ["perfectionist"],
   root: true,
   rules: {
+    "@typescript-eslint/no-shadow": ["error"],
     // Don't force capitalized comments
     "capitalized-comments": ["off"],
     // Only force func names if needed
@@ -40,6 +41,9 @@ module.exports = {
     "no-magic-numbers": "off",
     // Allow negated conditions
     "no-negated-condition": "off",
+    // Disable no-shadow because of upstream bug
+    // https://github.com/typescript-eslint/tslint-to-eslint-config/issues/856
+    "no-shadow": "off",
     // Force separate var declaration
     "one-var": ["error", "never"],
     // Add support for the "@" alias
