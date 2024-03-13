@@ -2,8 +2,6 @@
 
 import fs from "fs";
 
-import { isSuperset } from "../lib/utils";
-
 const WORD_LIST_FP: string = "./src/assets/words/word-list.json";
 const GAME_LIST_FP: string = "./src/assets/words/game-list.json";
 
@@ -13,6 +11,15 @@ const MIN_WORD_COUNT: number = 20;
 const MAX_WORD_SIZE: number = 5;
 
 const RAW_WORDS_URL: string = "https://raw.githubusercontent.com/wordnik/wordlist/main/wordlist-20210729.txt";
+
+export function isSuperset(set: Set<any>, subset: Iterable<any>): boolean {
+  for (const elem of subset) {
+    if (!set.has(elem)) {
+      return false;
+    }
+  }
+  return true;
+}
 
 function isWordValid(word: string): boolean {
   if (word.length < MIN_LETTERS || word.length > MAX_LETTERS) {
