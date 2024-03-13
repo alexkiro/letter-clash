@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.alexkiro.letter_clash.twa",
+      "sha256_cert_fingerprints": [
+        "FB:31:49:9B:80:4A:E5:4D:0B:E2:43:65:19:81:B1:9E:1B:28:7A:C8:9B:F7:13:5A:7C:8E:56:76:E9:85:D7:D2"
+      ]
+    }
+  }
+]
