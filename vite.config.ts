@@ -15,7 +15,9 @@ export default defineConfig({
       },
       manifest: {
         background_color: "#fdd018",
-        description: "Anagram Game Solver",
+        categories: ["games", "words", "letters", "anagrams"],
+        description: "Anagram Game Solver. Try to make as many words as you can with just 7 letters.",
+        dir: "ltr",
         display: "fullscreen",
         icons: [
           {
@@ -43,7 +45,23 @@ export default defineConfig({
             type: "image/png",
           },
         ],
+        id: "letter-clash.alexkiro.com",
+        launch_handler: {
+          client_mode: "auto",
+        },
         name: "Letter Clash",
+        screenshots: [
+          {
+            sizes: "1170x2532",
+            src: "screenshot1.png",
+            type: "image/png",
+          },
+          {
+            sizes: "1170x2532",
+            src: "screenshot2.png",
+            type: "image/png",
+          },
+        ],
         short_name: "Letter Clash",
         theme_color: "#048978",
       },
