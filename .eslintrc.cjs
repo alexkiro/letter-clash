@@ -7,7 +7,6 @@ module.exports = {
     "eslint:all",
     "@vue/eslint-config-typescript",
     "@vue/eslint-config-prettier/skip-formatting",
-    "plugin:perfectionist/recommended-natural",
     "plugin:prettier/recommended",
   ],
   overrides: [
@@ -19,7 +18,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
-  plugins: ["perfectionist"],
   root: true,
   rules: {
     "@typescript-eslint/no-shadow": ["error"],
@@ -48,28 +46,9 @@ module.exports = {
     "no-shadow": "off",
     // Force separate var declaration
     "one-var": ["error", "never"],
-    // Add support for the "@" alias
-    "perfectionist/sort-imports": [
-      "error",
-      {
-        groups: [
-          "type",
-          ["builtin", "external"],
-          "internal-type",
-          "internal",
-          ["parent-type", "sibling-type", "index-type"],
-          ["parent", "sibling", "index"],
-          "object",
-          "unknown",
-        ],
-        "internal-pattern": ["~/**", "@/**"],
-      },
-    ],
-    // Disable sorting rules, as we are using the perfectionist plugin that auto-fixes them.
+    // Disable sorting rules
     "sort-imports": "off",
     "sort-keys": "off",
     "sort-vars": "off",
-    // Disable attribute order as it conflicts with perfections order
-    "vue/attributes-order": "off",
   },
 };
