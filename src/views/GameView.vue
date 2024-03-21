@@ -96,7 +96,6 @@ export default defineComponent({
   mounted() {
     window.addEventListener("keyup", this.handleKeyboardEvents);
     this.resetGame();
-    this.updateCurrentTime();
   },
   methods: {
     padTime(nr: number): string {
@@ -158,6 +157,7 @@ export default defineComponent({
       this.userInput = "";
       this.currentGame = this.getNewGame();
       this.foundWords = [];
+      this.updateCurrentTime();
       // CHEAT!!!
       // for (const word of solutions) {
       //   userInput = word;
