@@ -1,9 +1,16 @@
 <template>
   <div class="found-words">
-    <div :key="wordLength" class="word-group" v-for="(words, wordLength) in wordsByLength">
+    <div v-for="(words, wordLength) in wordsByLength" :key="wordLength" class="word-group">
       <div class="group-title">{{ wordLength }} letters - {{ words.length }}</div>
       <div class="word-list">
-        <span :data-word="word" :key="word" v-for="word in Array.from(words).reverse()">{{ word }}</span>
+        <span
+          v-for="word in Array.from(words).reverse()"
+          :key="word"
+          :data-word="word"
+          :class="{ highlight: (highlightWords ?? []).indexOf(word) !== -1 }"
+        >
+          {{ word }}
+        </span>
       </div>
     </div>
   </div>
@@ -16,6 +23,11 @@ const props = defineProps({
   foundWords: {
     required: true,
     type: Array<string>,
+  },
+  highlightWords: {
+    required: false,
+    type: Array<string>,
+    default: null,
   },
 });
 const wordsByLength = computed(() => {
@@ -63,5 +75,10 @@ const wordsByLength = computed(() => {
   border-radius: 4px;
   padding: 0.25rem;
   box-shadow: 1px 2px #000;
+}
+
+.word-list span.highlight {
+  background-color: var(--ocean);
+  color: white;
 }
 </style>

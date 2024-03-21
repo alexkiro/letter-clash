@@ -1,11 +1,11 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import GamePlay from "@/components/GamePlay.vue";
+import GameView from "@/views/GameView.vue";
 
 describe("", () => {
   it("renders properly", () => {
-    const wrapper = mount(GamePlay);
+    const wrapper = mount(GameView);
     expect(wrapper.text()).toContain("▸");
   });
 });

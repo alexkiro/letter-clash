@@ -29,6 +29,7 @@
 *::before,
 *::after {
   box-sizing: inherit;
+  font-family: inherit;
 }
 
 a {
@@ -78,4 +79,15 @@ body {
 
 .bg-dark-ocean {
   background-color: var(--ocean);
+}
+
+.btn {
+  display: flex;
+
+  color: var(--btn-primary-fg);
+  background-color: var(--btn-primary-bg);
+
+  padding: 1rem 2.5rem;
+
+  font-size: 1.5rem;
 }
