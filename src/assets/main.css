@@ -81,6 +81,30 @@ body {
   background-color: var(--ocean);
 }
 
+.fg-white {
+  color: white;
+}
+
+.fg-peach {
+  color: var(--dark-peach);
+}
+
+.fg-dark-peach {
+  color: var(--peach);
+}
+
+.fg-ocean {
+  color: var(--dark-ocean);
+}
+
+.fg-dark-ocean {
+  color: var(--ocean);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 .btn {
   display: flex;
 
