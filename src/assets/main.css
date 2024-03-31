@@ -47,7 +47,7 @@ html {
   box-sizing: border-box;
   color: var(--font-color);
   font-family: "Reem Kufi", sans-serif;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
 }
 
 body {

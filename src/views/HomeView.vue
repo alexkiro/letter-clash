@@ -25,6 +25,7 @@ main {
   flex-direction: column;
   align-items: center;
   word-spacing: 0.5em;
+  letter-spacing: 0.1em;
 
   gap: 2rem;
 }
