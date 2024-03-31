@@ -207,6 +207,7 @@ dialog[open] {
   flex-direction: column;
 
   overflow: auto;
+  line-height: 1.1;
 }
 
 dialog::backdrop {
