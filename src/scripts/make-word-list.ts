@@ -10,7 +10,7 @@ const MAX_LETTERS = 7;
 const MIN_WORD_COUNT: number = 20;
 const MAX_WORD_SIZE: number = 5;
 
-const RAW_WORDS_URL: string = "https://raw.githubusercontent.com/wordnik/wordlist/main/wordlist-20210729.txt";
+const RAW_WORDS_URL: string = "https://www.wordgamedictionary.com/twl06/download/twl06.txt";
 
 export function isSuperset(set: Set<any>, subset: Iterable<any>): boolean {
   for (const elem of subset) {
