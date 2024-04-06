@@ -7,12 +7,11 @@ export const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     { path: "/", name: "home", component: HomeView },
-    { path: "/play", name: "play", component: GameView },
     {
-      path: "/play/:timer",
-      name: "play-timer",
+      path: "/play",
+      name: "play",
       component: GameView,
-      props: (route) => ({ timer: Number(route.params.timer) }),
+      props: (route) => ({ ...route.query, timer: Number(route.query.timer) }),
     },
   ],
 });

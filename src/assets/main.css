@@ -14,6 +14,7 @@
   --dark-ocean: #036e60;
   --peach: #ffa763;
   --dark-peach: #ff7f1c;
+  --gray: #dadada;
 }
 
 :root {
@@ -41,6 +42,11 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   line-height: 1;
+}
+
+button:disabled {
+  filter: grayscale();
+  pointer-events: none;
 }
 
 html {
@@ -107,10 +113,32 @@ body {
 .btn {
   display: flex;
 
-  color: var(--btn-primary-fg);
-  background-color: var(--btn-primary-bg);
+  color: var(--font-color);
+  background-color: var(--peach);
 
   padding: 1rem 2.5rem;
 
   font-size: 1.5rem;
+}
+
+.btn:hover {
+  background-color: var(--dark-peach);
+}
+
+.btn.ocean {
+  background-color: var(--ocean);
+  color: white;
+}
+
+.btn.ocean:hover {
+  background-color: var(--dark-ocean);
+  color: white;
+}
+
+.btn.white {
+  background-color: white;
+}
+
+.btn.white:hover {
+  background-color: var(--gray);
 }

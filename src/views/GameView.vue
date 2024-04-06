@@ -6,7 +6,7 @@
         <div class="game-score brutal-border bg-white">{{ displayTimer }}</div>
       </div>
       <div>
-        <button v-if="!gameEnd" class="top-icon brutal-border bg-white" title="Give up" @click="gameEnd = true">
+        <button v-if="!gameEnd" class="top-icon brutal-border bg-white" title="Give up" @click="giveUp = true">
           🏁
         </button>
         <button v-else class="top-icon brutal-border bg-white" title="New game" @click="resetGame">⟳</button>
@@ -39,8 +39,7 @@ import { animateShake, animateWiggle } from "@/lib/animations";
 import { difference, isSuperset, randomChoice, shuffle } from "@/lib/utils";
 import GameKeyboard from "@/components/GameKeyboard.vue";
 import UserInput from "@/components/UserInput.vue";
-
-const alphabet: Set<string> = new Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
+import { alphabet, gameSize } from "@/lib/settings";
 
 export default defineComponent({
   components: { UserInput, GameKeyboard, FoundWordList },
@@ -49,6 +48,14 @@ export default defineComponent({
       type: Number,
       required: false,
       default: null,
+    },
+    game: {
+      type: String,
+      required: false,
+      default: null,
+      validator(value: string) {
+        return value.length === gameSize;
+      },
     },
   },
   emits: {
@@ -114,9 +121,9 @@ export default defineComponent({
         setTimeout(this.updateCurrentTime, 200);
       }
     },
-    getNewGame(): string {
+    getRandomGame(): string {
       const game = Array.from(randomChoice(gameList));
-      const missingLetters = 7 - game.length;
+      const missingLetters = gameSize - game.length;
 
       if (missingLetters > 0) {
         const availableLetters = difference(alphabet, new Set(game));
@@ -162,7 +169,7 @@ export default defineComponent({
       this.startTimeMs = performance.now();
       this.currentTimeMs = this.startTimeMs;
       this.userInput = "";
-      this.currentGame = this.getNewGame();
+      this.currentGame = this.game ?? this.getRandomGame();
       this.foundWords = [];
       this.updateCurrentTime();
 

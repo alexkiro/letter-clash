@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <native-dialog :show="!!selectedWord" class="brutal-border" @close="selectedWord = ''">
+  <native-dialog :model-value="!!selectedWord" class="brutal-border" @close="selectedWord = ''">
     <header>
       <div>
         <div>
@@ -195,26 +195,6 @@ export default defineComponent({
 .word-list span.highlight {
   background-color: var(--ocean);
   color: white;
-}
-
-dialog[open] {
-  background-color: white;
-  min-height: 40%;
-  min-width: 90%;
-
-  max-height: 80%;
-  max-width: 90%;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-
-  overflow: auto;
-  line-height: 1.1;
-}
-
-dialog::backdrop {
-  background-color: rgba(10, 10, 10, 0.8);
 }
 
 header {
