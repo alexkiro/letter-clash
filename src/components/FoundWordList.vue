@@ -29,13 +29,16 @@
 
     <loading-spinner v-if="loadingDefinitions" />
     <ul v-else-if="definitions.length > 0">
+      <!-- eslint-disable-next-line vue/require-v-for-key -->
       <li v-for="group in definitions">
         <b>{{ group.partOfSpeech }}</b>
         <ol>
           <template v-for="definition in group.definitions">
+            <!-- eslint-disable-next-line vue/require-v-for-key -->
             <li v-if="definition.definition">
               {{ stripHtml(definition.definition) }}
               <ul v-if="definition.examples">
+                <!-- eslint-disable-next-line vue/require-v-for-key -->
                 <li v-for="example in definition.examples">
                   <i>{{ stripHtml(example) }}</i>
                 </li>
@@ -138,7 +141,7 @@ export default defineComponent({
   },
   methods: {
     stripHtml(html: string): string {
-      let doc = new DOMParser().parseFromString(html, "text/html");
+      const doc = new DOMParser().parseFromString(html, "text/html");
       return doc.body.textContent || "";
     },
   },
