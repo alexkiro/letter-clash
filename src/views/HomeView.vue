@@ -105,9 +105,10 @@ main {
 }
 
 dialog form {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
 }

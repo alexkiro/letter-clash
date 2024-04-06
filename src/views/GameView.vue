@@ -9,7 +9,7 @@
         <button v-if="!gameEnd" class="top-icon brutal-border bg-white" title="Give up" @click="giveUp = true">
           🏁
         </button>
-        <button v-else class="top-icon brutal-border bg-white" title="New game" @click="resetGame">⟳</button>
+        <button v-else-if="!game" class="top-icon brutal-border bg-white" title="New game" @click="resetGame">⟳</button>
         <router-link :to="{ name: 'home' }" class="top-icon brutal-border bg-dark-peach">X</router-link>
       </div>
     </div>
@@ -39,7 +39,7 @@ import { animateShake, animateWiggle } from "@/lib/animations";
 import { difference, isSuperset, randomChoice, shuffle } from "@/lib/utils";
 import GameKeyboard from "@/components/GameKeyboard.vue";
 import UserInput from "@/components/UserInput.vue";
-import { alphabet, gameSize } from "@/lib/settings";
+import { alphabet, gameSize, points } from "@/lib/settings";
 
 export default defineComponent({
   components: { UserInput, GameKeyboard, FoundWordList },
@@ -84,7 +84,7 @@ export default defineComponent({
     score() {
       let result = 0;
       for (const word of this.foundWords) {
-        result += word.length;
+        result += points[word.length] ?? 0;
       }
       return result;
     },
