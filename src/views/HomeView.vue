@@ -1,6 +1,9 @@
 <template>
   <main>
     <header>Letter Clash</header>
+    <router-link class="btn brutal-border" :to="{ name: 'play-timer', params: { timer: 5 * 60 } }">
+      New Game
+    </router-link>
     <router-link class="btn brutal-border" :to="{ name: 'play' }">Casual Game</router-link>
   </main>
 </template>

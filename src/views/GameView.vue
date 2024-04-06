@@ -6,8 +6,10 @@
         <div class="game-score brutal-border bg-white">{{ displayTimer }}</div>
       </div>
       <div>
-        <button v-if="!gameEnd" class="top-icon brutal-border bg-white" @click="gameEnd = true">🏁</button>
-        <button v-else class="top-icon brutal-border bg-white" @click="resetGame">⟳</button>
+        <button v-if="!gameEnd" class="top-icon brutal-border bg-white" title="Give up" @click="gameEnd = true">
+          🏁
+        </button>
+        <button v-else class="top-icon brutal-border bg-white" title="New game" @click="resetGame">⟳</button>
         <router-link :to="{ name: 'home' }" class="top-icon brutal-border bg-dark-peach">X</router-link>
       </div>
     </div>
@@ -60,11 +62,14 @@ export default defineComponent({
       currentGame: "",
       startTimeMs: 0,
       currentTimeMs: 0,
-      gameEnd: false,
+      giveUp: false,
       foundWords: [] as string[],
     };
   },
   computed: {
+    gameEnd() {
+      return this.giveUp || (this.timer && this.elapsedSeconds >= this.timer);
+    },
     solutions(): Set<string> {
       const game = new Set(this.currentGame);
       return new Set(wordList.filter((word) => isSuperset(game, word)));
@@ -76,11 +81,13 @@ export default defineComponent({
       }
       return result;
     },
+    elapsedSeconds() {
+      return Math.floor((this.currentTimeMs - this.startTimeMs) / 1000);
+    },
     displayTimer() {
-      const elapsedSeconds = Math.floor((this.currentTimeMs - this.startTimeMs) / 1000);
-      let displayTime = elapsedSeconds;
+      let displayTime = this.elapsedSeconds;
       if (this.timer) {
-        displayTime = Math.max(0, this.timer - elapsedSeconds);
+        displayTime = Math.max(0, this.timer - this.elapsedSeconds);
       }
       const hours = Math.floor(displayTime / 3600);
       const minutes = Math.floor((displayTime % 3600) / 60);
@@ -151,18 +158,14 @@ export default defineComponent({
       }
     },
     async resetGame() {
-      this.gameEnd = false;
+      this.giveUp = false;
       this.startTimeMs = performance.now();
       this.currentTimeMs = this.startTimeMs;
       this.userInput = "";
       this.currentGame = this.getNewGame();
       this.foundWords = [];
       this.updateCurrentTime();
-      // CHEAT!!!
-      // for (const word of solutions) {
-      //   userInput = word;
-      //   submitWord();
-      // }
+
       await this.$nextTick();
 
       const colors = ["dark-ocean", "dark-peach", "ocean", "peach"];
