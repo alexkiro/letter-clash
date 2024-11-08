@@ -45,6 +45,11 @@
     <meta property="og:article:author" content="alexkiro" />
   </head>
   <body>
+    <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+    </script>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
